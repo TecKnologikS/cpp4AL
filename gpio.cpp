@@ -11,9 +11,8 @@ using namespace std;
 int main(int argc, char* argv[]) { 
     std::cout << "nb param " << argc  << std::endl;
     if (argc > 1) {
-        std::cout << argv[0] << "says hello, " << argv[1] << "!" << std::endl;
         GPIOClass* gpio = new GPIOClass(argv[0]); 
-        cout << gpio << argc[0] << " command " << argv[1] << endl;
+        cout << " gpio " << argv[0] << " command " << argv[1] << endl;
         if(strncmp(argv[1], "enable", 0)) {
             gpio->setval_gpio("1");
         } else if(strncmp(argv[1], "disable", 0)) {
