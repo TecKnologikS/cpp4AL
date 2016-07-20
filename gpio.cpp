@@ -10,27 +10,22 @@ using namespace std;
 int main(int argc, char* argv[]) { 
 
     if (argc > 1) {
-        GPIOClass* gpio = new GPIOClass("" + argv[0]); 
-        switch(argv[1]) {
-            case "enable":
-                gpio->setval_gpio("1");
-                break;
-            case "disable":
+        GPIOClass* gpio = new GPIOClass(argv[0]); 
+        if(argv[1] == "enable") {
+            gpio->setval_gpio("1");
+        } else if(argv[1] == "disable") {
                 gpio->setval_gpio("0");
-                break;
-            case "change":
-                string inputstate;
-                gpio->getval_gpio(inputstate); 
-                if(inputstate == "0")
-                {
-                    gpio->setval_gpio("1");
-                } else {
-                    gpio->setval_gpio("0");
-                }
-                break;
-            default:
-                return 0;
-                break;
+        } else if(argv[1] == "change") {
+            string inputstate;
+            gpio->getval_gpio(inputstate); 
+            if(inputstate == "0")
+            {
+                gpio->setval_gpio("1");
+            } else {
+                gpio->setval_gpio("0");
+            }
+        } else {
+            return 0;
         }
         return 1;
     } else {
