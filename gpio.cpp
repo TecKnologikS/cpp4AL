@@ -15,13 +15,13 @@ int main(int argc, char* argv[]) {
         gpio->export_gpio();
         gpio->setdir_gpio("out"); 
         cout << " gpio " << argv[1] << " command " << argv[2] << endl;
-        if(strncmp(argv[2], "enable", 0)) {
+        if(argv[2].compare("enable") == 0) {
             gpio->setval_gpio("1");
             cout << "enable to 1" << endl;
-        } else if(strncmp(argv[2], "disable", 0)) {
+        } else if(argv[2].compare("disable") == 0) {
             gpio->setval_gpio("0");
             cout << "disable to 0" << endl;
-        } else if(strncmp(argv[2], "change", 0)) {
+        } else if(argv[2].compare("change") == 0) {
             string inputstate;
             gpio->getval_gpio(inputstate); 
             if(inputstate == "0")
