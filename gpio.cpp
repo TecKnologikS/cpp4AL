@@ -11,11 +11,11 @@ int main(int argc, char* argv[]) {
 
     if (argc > 1) {
         GPIOClass* gpio = new GPIOClass(argv[0]); 
-        if(argv[1] == "enable") {
+        if(strncmp(argv[1], "enable", 0) {
             gpio->setval_gpio("1");
-        } else if(argv[1] == "disable") {
+        } else if(strncmp(argv[1], "disable", 0) {
                 gpio->setval_gpio("0");
-        } else if(argv[1] == "change") {
+        } else if(strncmp(argv[1], "change", 0) {
             string inputstate;
             gpio->getval_gpio(inputstate); 
             if(inputstate == "0")
