@@ -17,18 +17,23 @@ int main(int argc, char* argv[]) {
         cout << " gpio " << argv[1] << " command " << argv[2] << endl;
         if(strncmp(argv[2], "enable", 0)) {
             gpio->setval_gpio("1");
+            cout << "enable to 1" << endl;
         } else if(strncmp(argv[2], "disable", 0)) {
-                gpio->setval_gpio("0");
+            gpio->setval_gpio("0");
+            cout << "disable to 0" << endl;
         } else if(strncmp(argv[2], "change", 0)) {
             string inputstate;
             gpio->getval_gpio(inputstate); 
             if(inputstate == "0")
             {
                 gpio->setval_gpio("1");
+                cout << "change to 1" << endl;
             } else {
                 gpio->setval_gpio("0");
+                cout << "change to 0" << endl;
             }
         } else {
+            cout << "nothin" << endl;
             return 0;
         }
         return 1;
