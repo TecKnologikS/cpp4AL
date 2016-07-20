@@ -3,19 +3,23 @@
 
 #include <string>
 using namespace std;
-class GpioClass
+/* GPIO Class
+ * Purpose: Each object instantiated from this class will control a GPIO pin
+ * The GPIO pin number must be passed to the overloaded class constructor
+ */
+class GPIOClass
 {
 public:
-    GpioClass();  // creer un gpio avec comme valeur par default 4
-    GpioClass(string x); // creer un gpio avec la valeur x en param
-    int export_gpio(); // export 
-    int unexport_gpio(); // unexport
-    int setdir_gpio(string dir); // change le sens du GPIO 
-    int setval_gpio(string val); // change la veleur du gpio (out)
-    int getval_gpio(string& val); // recup la valeur du gpio (in/out)
-    string get_gpionum(); // retourn le numero du gpio en fonction de la valeur passer en param
+    GPIOClass();  // create a GPIO object that controls GPIO4 (default
+    GPIOClass(string x); // create a GPIO object that controls GPIOx, where x is passed to this constructor
+    int export_gpio(); // exports GPIO
+    int unexport_gpio(); // unexport GPIO
+    int setdir_gpio(string dir); // Set GPIO Direction
+    int setval_gpio(string val); // Set GPIO Value (putput pins)
+    int getval_gpio(string& val); // Get GPIO Value (input/ output pins)
+    string get_gpionum(); // return the GPIO number associated with the instance of an object
 private:
-    string gpionum; // numero du gpio de l objet
+    string gpionum; // GPIO number associated with the instance of an object
 };
 
 #endif
