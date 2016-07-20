@@ -30,7 +30,7 @@ void doProcess(int newSocket) {
 		strcpy(PASSW, buffer);
 		/*   Verifier si MDP CORRECT  */
 		/*   si MDP CORRECT  */
-		int correct = 0;
+		int correct = 1;
 		
 		FILE *f = fopen("./mdp.txt", "r");
 		char line[256];
